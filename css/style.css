@@ -24,7 +24,7 @@ body {
 
 .navbar {
   color: black;
-  padding: 10px;
+  padding: 20px 30px;
   text-align: center;
   justify-content: space-between;
   display: flex;
@@ -32,7 +32,7 @@ body {
 }
 
 .navbar > img {
-  height: 40px;
+  height: 50px;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
   margin: 10px 100px;
@@ -44,7 +44,7 @@ body {
   align-items: center;
   justify-content: flex-end;
   gap: 15px;
-  font-size: 17px;
+  font-size: 22px;
   font-weight: 500;
   list-style: none;
   padding: 10px 70px;
@@ -66,7 +66,7 @@ body {
 
 .page1 h1 {
   text-align: center;
-  font-size: 3vw;
+  font-size: 3.9vw;
   margin-bottom: 20px;
   font-weight: 700;
   font-family: "Quicksand", sans-serif;
@@ -74,7 +74,7 @@ body {
 
 .page1 p {
   text-align: center;
-  font-size: 22px;
+  font-size: 27px;
 }
 
 .page1 button {
@@ -84,7 +84,8 @@ body {
   border: none;
   cursor: pointer;
   border-radius: 50px;
-  width: 150px;
+  width: 200px;
+  height: 70px;
   font-size: 18px;
   border: 2px solid black;
   margin: 10px auto;
@@ -126,22 +127,25 @@ body {
 }
 
 .feature-section img {
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
   position: relative;
   left: 40%;
 }
 .feature-section h3 {
   text-align: center;
   margin: 20px 0px;
+  font-size: 30px;
 }
 .feature-section p {
   text-align: center;
   margin: 20px 10px;
+  font-size: 23px;
+
 }
 
 .page3 {
-  height: 80vh;
+  height: 60vh;
   width: 100%;
   /* border: 2px solid red ; */
   padding: 10px 20px;
@@ -152,6 +156,7 @@ body {
   font-size: 4vw;
   margin: 0px 20px;
   font-weight: 700;
+  /* border: 2px solid red ; */
   color: transparent;
   -webkit-text-stroke: 1px black; /* for Chrome, Safari, and Opera */
   /* text-stroke: 2px black; for Firefox */
@@ -159,7 +164,7 @@ body {
   /* text-stroke: 1px solid black; */
 }
 .post-section {
-  height: 90%;
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
