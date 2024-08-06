@@ -44,7 +44,7 @@ body {
   align-items: center;
   justify-content: flex-end;
   gap: 15px;
-  font-size: 27px;
+  font-size: 17px;
   font-weight: 500;
   list-style: none;
   padding: 10px 70px;
@@ -226,20 +226,21 @@ body {
 }
 .heafign-holder {
   display: flex;
-  /* border: 2px solid rgb(53, 232, 131); */
-  padding: 100px 350px;
-text-align: center;
-  justify-content: space-between;
+  border: 2px solid rgb(53, 232, 131);
+  padding:  40px 350px;
+  text-align: center;
+  justify-content: center;
   align-items: center;
-
 }
 .heafign-holder h1 {
   font-size: 4vw;
+  text-align: center;
   font-weight: 900;
-    color: transparent;
-    letter-spacing: -2px;
+  color: transparent;
+border: 2px solid red ;
+  letter-spacing: -2px;
   -webkit-text-stroke: 1px black;
-  border-bottom: 2px solid black ;
+  /* border-bottom: 2px solid black; */
 }
 /* .soial-link {
   margin-top: 30px;
