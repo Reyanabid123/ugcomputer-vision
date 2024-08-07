@@ -1,47 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hover Effect with GSAP</title>
-        <link rel="stylesheet" href="../css/pages.css">
-        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.css">
-    </head>
-    <body>
-        <div class="navbar">
-            <img src="https://via.placeholder.com/150" alt="Logo">
-            <ul>
-                <li>Home</li>
-                <a href="../index.html"><li>Tutorial</li></a>
-                <li>Wallpaper</li>
-                <li>Download</li>
-                <li>Product</li>
-                <li>About Us</li>
-                <li>Services</li>
-                <li>Profile</li>
-            </ul>
-        </div>
-        <div class="page3">
-            <h1>Tutorials</h1>
-            <div class="post-section">
-                <div class="post1">
-                    <img src="https://via.placeholder.com/400x300" alt="Tutorial 1">
-                    <div class="tutorial-name">Tutorial 1</div>
-                </div>
-                <div class="post1">
-                    <img src="https://via.placeholder.com/400x300" alt="Tutorial 2">
-                    <div class="tutorial-name">Tutorial 2</div>
-                </div>
-                <div class="post1">
-                    <img src="https://via.placeholder.com/400x300" alt="Tutorial 3">
-                    <div class="tutorial-name">Tutorial 3</div>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magical Card Effects</title>
+    <link rel="stylesheet" href="../css/pages.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.css">
+    <style>
+        /* Overlay Styling */
+        .full-page-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Allow interaction with underlying content */
+            z-index: 1000;
+            overflow: hidden; /* Prevents scrollbars */
+        }
+
+        /* Card Styling */
+        .post1 {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .post1 img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .tutorial-name {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="../img/banner.webp" alt="Logo">
+        <ul>
+            <li>Home</li>
+            <a href="../index.html"><li>Tutorial</li></a>
+            <li>Wallpaper</li>
+            <li>Download</li>
+            <li>Product</li>
+            <li>About Us</li>
+            <li>Services</li>
+            <li>Profile</li>
+        </ul>
+    </div>
+    <div class="page3">
+        <h1>Tutorials</h1>
+        <div class="post-section">
+            <div class="post1">
+                <img src="https://via.placeholder.com/400x300" alt="Tutorial 1">
+                <div class="tutorial-name">Tutorial 1</div>
+            </div>
+            <div class="post1">
+                <img src="https://via.placeholder.com/400x300" alt="Tutorial 2">
+                <div class="tutorial-name">Tutorial 2</div>
+            </div>
+            <div class="post1">
+                <img src="https://via.placeholder.com/400x300" alt="Tutorial 3">
+                <div class="tutorial-name">Tutorial 3</div>
             </div>
         </div>
-        <div class="cuser"></div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
-        <script src="../js/main.js"></script>
-    </body>
+    </div>
+    <div class="full-page-overlay"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="../js/main2.js"></script>
+</body>
 </html>

@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
       gsap.to(card, {
         scale: 1.05,
         duration: 0.3,
-        boxShadow: "0 12px 24px rgba(0, 0, 0, 0.2)",
+        boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
         ease: "power2.out",
       });
     });
@@ -63,12 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "position",
     new THREE.Float32BufferAttribute(vertices, 3)
   );
-  const material = new THREE.PointsMaterial({
-    color: 0x00aaff,
-    size: 0.5,
-    transparent: true,
-    opacity: 0.5,
-  });
+  const material = new THREE.PointsMaterial({ color: 0xffffff, size: 0.5 });
   const particles = new THREE.Points(geometry, material);
   scene.add(particles);
 
@@ -81,11 +76,4 @@ document.addEventListener("DOMContentLoaded", function () {
     renderer.render(scene, camera);
   }
   animate();
-
-  // Adjust Three.js renderer size on window resize
-  window.addEventListener("resize", () => {
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-  });
 });
