@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize Locomotive Scroll
   const scroll = new LocomotiveScroll({
-    el: document.querySelector(".page3"), // Adjust the element selector to match your layout
+    el: document.querySelector(".main"),
     smooth: true,
-    lerp: 0.2,
+    lerp: 0.2, // Adjust this value for smoother or faster scrolling
   });
 
   // Animate heading (h1)
@@ -90,17 +90,61 @@ document.addEventListener("DOMContentLoaded", function () {
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
     gsap.to(button, {
-      x: x * 0.2,
-      y: y * 0.2,
-      duration: 0.2,
+      x: x * 0.1,
+      y: y * 0.1,
+      rotate: x * 0.01,
+      duration: 0.3,
+      ease: "power2.out",
     });
   });
 
-  document.addEventListener("mouseout", () => {
+  button.addEventListener("mouseleave", () => {
     gsap.to(button, {
       x: 0,
       y: 0,
-      duration: 0.2,
+      rotate: 0,
+      duration: 0.3,
+      ease: "power2.out",
     });
   });
+
+  // Create a mouse follower element
+  const follower = document.querySelector(".cuser");
+
+  // Set initial properties for the follower element
+  gsap.set(follower, { xPercent: -50, yPercent: -50 });
+
+  // Animate the follower based on mouse movement
+  document.addEventListener("mousemove", (e) => {
+    const scrollY = scroll.scroll.instance.scroll.y; // Get the current scroll position
+    gsap.to(follower, {
+      x: e.clientX,
+      y: e.clientY + scrollY, // Adjust the y-position with the scroll position
+      duration: 0.4,
+      ease: "elastic.out(1, 0.3)",
+    });
+  });
+
+  // Full page overlay with typing indicator
+  const overlay = document.createElement("div");
+  overlay.className = "full-page-overlay";
+  document.body.appendChild(overlay);
+
+  gsap.fromTo(
+    ".typing-indicator",
+    { opacity: 0 },
+    { opacity: 1, duration: 0.5 }
+  );
+
+  // Example: Hide the typing indicator and overlay after 5 seconds
+  setTimeout(function () {
+    gsap.to(".full-page-overlay", {
+      opacity: 0,
+      duration: 0.5,
+      innerHTML: "",
+      onComplete: () => {
+        overlay.remove(); // Remove the overlay from the DOM
+      },
+    });
+  }, 5000);
 });
