@@ -45,20 +45,20 @@ document.addEventListener("DOMContentLoaded", function () {
     0.1,
     1000
   );
-  const renderer = new THREE.WebGLRenderer({ alpha: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  document.querySelector(".full-page-overlay").appendChild(renderer.domElement);
+  // const renderer = new THREE.WebGLRenderer({ alpha: true });
+  // renderer.setSize(window.innerWidth, window.innerHeight);
+  // document.querySelector(".full-page-overlay").appendChild(renderer.domElement);
 
-  // Add Particles
-  const geometry = new THREE.BufferGeometry();
-  const vertices = [];
-  for (let i = 0; i < 1000; i++) {
-    vertices.push(
-      Math.random() * 2000 - 1000,
-      Math.random() * 2000 - 1000,
-      Math.random() * 2000 - 1000
-    );
-  }
+  // // Add Particles
+  // const geometry = new THREE.BufferGeometry();
+  // const vertices = [];
+  // for (let i = 0; i < 1000; i++) {
+  //   vertices.push(
+  //     Math.random() * 2000 - 1000,
+  //     Math.random() * 2000 - 1000,
+  //     Math.random() * 2000 - 1000
+  //   );
+  // }
   geometry.setAttribute(
     "position",
     new THREE.Float32BufferAttribute(vertices, 3)
