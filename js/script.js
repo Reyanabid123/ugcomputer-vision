@@ -1,91 +1,141 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize Locomotive Scroll
   const scroll = new LocomotiveScroll({
-    el: document.querySelector(".page3"),
+    el: document.querySelector(".main"),
     smooth: true,
-    lerp: 0.2,
+    smoothMobile: true,
+    multiplier: 1.2,
+    class: "is-reveal",
   });
 
-  // GSAP Animations for Cards
-  gsap.from(".post1", {
-    duration: 1,
-    opacity: 0,
-    y: 100,
-    scale: 0.8,
-    stagger: 0.3,
-    ease: "power2.out",
+  // GSAP Navbar Hover Effects
+  const navItems = document.querySelectorAll(".navbar ul li");
+
+  navItems.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      gsap.to(item, {
+        scale: 1.2,
+        rotation: 5,
+        color: "#f39c12",
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    });
+
+    item.addEventListener("mouseleave", () => {
+      gsap.to(item, {
+        scale: 1,
+        rotation: 0,
+        color: "#fff",
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    });
   });
 
-  document.querySelectorAll(".post1").forEach((card) => {
-    // Adding hover animation
+  // GSAP Card Hover Effects
+  const featureCards = document.querySelectorAll(".feature-card");
+
+  featureCards.forEach((card) => {
     card.addEventListener("mouseenter", () => {
       gsap.to(card, {
-        scale: 1.05,
-        duration: 0.3,
-        boxShadow: "0 12px 24px rgba(0, 0, 0, 0.2)",
+        y: -15,
+        boxShadow: "0px 15px 30px rgba(0,0,0,0.3)",
+        borderColor: "#f39c12",
+        backgroundColor: "#2c3e50",
+        color: "#ecf0f1",
+        duration: 0.4,
         ease: "power2.out",
       });
     });
 
     card.addEventListener("mouseleave", () => {
       gsap.to(card, {
-        scale: 1,
-        duration: 0.3,
-        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+        y: 0,
+        boxShadow: "0px 5px 10px rgba(0,0,0,0.1)",
+        borderColor: "#bdc3c7",
+        backgroundColor: "#ecf0f1",
+        color: "#2c3e50",
+        duration: 0.4,
         ease: "power2.out",
       });
     });
   });
 
-  // Three.js Setup
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(
-    75,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000
-  );
-  // const renderer = new THREE.WebGLRenderer({ alpha: true });
-  // renderer.setSize(window.innerWidth, window.innerHeight);
-  // document.querySelector(".full-page-overlay").appendChild(renderer.domElement);
-
-  // // Add Particles
-  // const geometry = new THREE.BufferGeometry();
-  // const vertices = [];
-  // for (let i = 0; i < 1000; i++) {
-  //   vertices.push(
-  //     Math.random() * 2000 - 1000,
-  //     Math.random() * 2000 - 1000,
-  //     Math.random() * 2000 - 1000
-  //   );
-  // }
-  geometry.setAttribute(
-    "position",
-    new THREE.Float32BufferAttribute(vertices, 3)
-  );
-  const material = new THREE.PointsMaterial({
-    color: 0x00aaff,
-    size: 0.5,
-    transparent: true,
-    opacity: 0.5,
+  // Initialize Swiper
+  const swiper = new Swiper(".swiper-container", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
   });
-  const particles = new THREE.Points(geometry, material);
-  scene.add(particles);
-
-  camera.position.z = 500;
-
-  function animate() {
-    requestAnimationFrame(animate);
-    particles.rotation.x += 0.001;
-    particles.rotation.y += 0.001;
-    renderer.render(scene, camera);
+});
+// Scroll-triggered navbar background change
+window.addEventListener('scroll', function() {
+  const navbar = document.querySelector('.navbar');
+  if (window.scrollY > 100) {
+    navbar.style.backgroundColor = '#1a1a1a';
+  } else {
+    navbar.style.backgroundColor = '#2d2d2d';
   }
-  animate();
+});
 
-  // Adjust Three.js renderer size on window resize
-  window.addEventListener("resize", () => {
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
+// GSAP animation for content appearance
+gsap.from('.content h1', {
+  duration: 1.5,
+  y: -50,
+  opacity: 0,
+  ease: "power3.out",
+  delay: 0.3
+});
+
+gsap.from('.content p', {
+  duration: 1.5,
+  y: 50,
+  opacity: 0,
+  ease: "power3.out",
+  delay: 0.6
+});
+document.addEventListener("DOMContentLoaded", function () {
+  // Create the custom cursor element
+  const cursor = document.createElement("div");
+  cursor.classList.add("cuser");
+  document.body.appendChild(cursor);
+
+  // Update cursor position
+  document.addEventListener("mousemove", (e) => {
+    cursor.style.transform = `translate3d(${
+      e.clientX - cursor.clientWidth / 2
+    }px, ${e.clientY - cursor.clientHeight / 2}px, 0)`;
+  });
+
+  // Hide cursor when mouse leaves the viewport
+  document.addEventListener("mouseleave", () => {
+    cursor.classList.add("hidden");
+  });
+
+  // Show cursor when mouse re-enters the viewport
+  document.addEventListener("mouseenter", () => {
+    cursor.classList.remove("hidden");
   });
 });
