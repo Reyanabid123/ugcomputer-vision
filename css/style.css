@@ -35,7 +35,7 @@ body {
 
 /* Navbar Styles */
 .navbar {
-  padding: 20px 50px;
+  padding: 30px 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -63,7 +63,8 @@ body {
 }
 
 .navbar ul li {
-  position: relative;
+  font-size: 1.6vw;
+  font-weight: 500;
 }
 
 .navbar ul a {
@@ -81,7 +82,7 @@ body {
   height: 2px;
   bottom: -5px;
   left: 0;
-  background-color: #007bff;
+  background-color: #000000;
   transition: width 0.3s ease;
 }
 
@@ -92,7 +93,7 @@ body {
 /* Page Section Styles */
 .page1 {
   height: 90vh;
-  padding: 120px 90px;
+  padding: 90px 230px;
   text-align: center;
   /* background: linear-gradient(135deg, #72EDF2 10%, #5151E5 100%); */
   color: rgb(0, 0, 0);
@@ -100,7 +101,6 @@ body {
 
 .page1 h1 {
   font-size: 4vw;
-  margin-bottom: 30px;
   font-weight: 700;
   font-family: "Quicksand", sans-serif;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
