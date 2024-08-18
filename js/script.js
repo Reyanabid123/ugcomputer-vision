@@ -139,3 +139,16 @@ document.addEventListener("DOMContentLoaded", function () {
     cursor.classList.remove("hidden");
   });
 });
+const loadingText = document.getElementById('loading-text h1');
+
+let loadPercentage = 0;
+
+const loadingInterval = setInterval(() => {
+    if (loadPercentage < 100) {
+        loadPercentage++;
+        loadingText.innerText = `${loadPercentage}%`;
+    } else {
+        clearInterval(loadingInterval);
+        document.querySelector('.loading-animation').classList.add('hidden');
+    }
+}, 50); // Adjust the interval to control the speed of loading
